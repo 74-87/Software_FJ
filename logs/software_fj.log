@@ -1,0 +1,450 @@
+2026-11-24 21:59:13 | INFO | Sistema Software FJ iniciado
+2026-11-24 21:59:13 | ERROR | Prueba de error controlado
+2026-11-24 22:01:33 | INFO | Gestor central de Software FJ iniciado.
+2026-11-24 22:02:57 | INFO | Gestor central de Software FJ iniciado.
+2026-11-24 22:02:57 | INFO | Inicio de pruebas integrales.
+2026-11-24 22:02:57 | INFO | Cliente registrado: C001.
+2026-11-24 22:02:57 | ERROR | Prueba 2: cliente con correo invalido: El correo electrónico no es válido.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 92, in <module>
+    cliente_invalido = Cliente(
+        "C002",
+    ...<2 lines>...
+        "3001234567"
+    )
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\clientes.py", line 37, in __init__
+    raise ErrorValidacion("El correo electrónico no es válido.")
+excepciones.ErrorValidacion: El correo electrónico no es válido.
+2026-11-24 22:02:57 | INFO | Cliente registrado: C003.
+2026-11-24 22:02:57 | INFO | Servicio registrado: S001.
+2026-11-24 22:02:57 | INFO | Servicio registrado: E001.
+2026-11-24 22:02:57 | ERROR | Prueba 6: capacidad de sala invalida: La capacidad debe ser un entero positivo.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 176, in <module>
+    servicio_invalido = ServicioSala(
+        "S002",
+    ...<2 lines>...
+        0
+    )
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\servicios.py", line 136, in __init__
+    raise ErrorValidacion("La capacidad debe ser un entero positivo.")
+excepciones.ErrorValidacion: La capacidad debe ser un entero positivo.
+2026-11-24 22:02:57 | INFO | Reserva creada: R001 para cliente C001.
+2026-11-24 22:02:57 | INFO | Servicio registrado: S003.
+2026-11-24 22:02:57 | ERROR | Error al crear reserva: El servicio Sala no disponible no esta disponible.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 143, in crear_reserva
+    reserva = Reserva(
+        codigo,
+    ...<3 lines>...
+        cantidad
+    )
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\reservas.py", line 67, in __init__
+    servicio.validar_parametros(duracion)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\servicios.py", line 146, in validar_parametros
+    self.validar_disponibilidad()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\servicios.py", line 70, in validar_disponibilidad
+    raise ServicioNoDisponible(
+        f"El servicio {self._nombre} no esta disponible."
+    )
+excepciones.ServicioNoDisponible: El servicio Sala no disponible no esta disponible.
+2026-11-24 22:02:57 | ERROR | Prueba 8: servicio no disponible: El servicio Sala no disponible no esta disponible.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 236, in <module>
+    gestor.crear_reserva(
+    ~~~~~~~~~~~~~~~~~~~~^
+        "R002",
+        ^^^^^^^
+    ...<2 lines>...
+        2
+        ^
+    )
+    ^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 143, in crear_reserva
+    reserva = Reserva(
+        codigo,
+    ...<3 lines>...
+        cantidad
+    )
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\reservas.py", line 67, in __init__
+    servicio.validar_parametros(duracion)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\servicios.py", line 146, in validar_parametros
+    self.validar_disponibilidad()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\servicios.py", line 70, in validar_disponibilidad
+    raise ServicioNoDisponible(
+        f"El servicio {self._nombre} no esta disponible."
+    )
+excepciones.ServicioNoDisponible: El servicio Sala no disponible no esta disponible.
+2026-11-24 22:02:57 | ERROR | Error al crear reserva: No se encontro el cliente C999.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 140, in crear_reserva
+    cliente = self.buscar_cliente(codigo_cliente)
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 98, in buscar_cliente
+    raise ErrorCliente(
+        f"No se encontro el cliente {codigo}."
+    )
+excepciones.ErrorCliente: No se encontro el cliente C999.
+2026-11-24 22:02:57 | ERROR | Prueba 9: cliente inexistente: No se encontro el cliente C999.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 255, in <module>
+    gestor.crear_reserva(
+    ~~~~~~~~~~~~~~~~~~~~^
+        "R003",
+        ^^^^^^^
+    ...<2 lines>...
+        2
+        ^
+    )
+    ^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 140, in crear_reserva
+    cliente = self.buscar_cliente(codigo_cliente)
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 98, in buscar_cliente
+    raise ErrorCliente(
+        f"No se encontro el cliente {codigo}."
+    )
+excepciones.ErrorCliente: No se encontro el cliente C999.
+2026-11-24 22:02:57 | ERROR | Error al registrar cliente: Ya existe el cliente C001.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 51, in registrar_cliente
+    raise ErrorCliente(
+        f"Ya existe el cliente {cliente.codigo}."
+    )
+excepciones.ErrorCliente: Ya existe el cliente C001.
+2026-11-24 22:02:57 | ERROR | Prueba 10: cliente duplicado: Ya existe el cliente C001.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 274, in <module>
+    gestor.registrar_cliente(cliente1)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 51, in registrar_cliente
+    raise ErrorCliente(
+        f"Ya existe el cliente {cliente.codigo}."
+    )
+excepciones.ErrorCliente: Ya existe el cliente C001.
+2026-11-24 22:02:57 | ERROR | Prueba 11: excepcion encadenada: No se pudo crear el cliente por datos invalidos.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 291, in crear_cliente_con_encadenamiento
+    return Cliente(
+        "C011",
+    ...<2 lines>...
+        "3001234567"
+    )
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\clientes.py", line 37, in __init__
+    raise ErrorValidacion("El correo electrónico no es válido.")
+excepciones.ErrorValidacion: El correo electrónico no es válido.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 305, in <module>
+    crear_cliente_con_encadenamiento()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 299, in crear_cliente_con_encadenamiento
+    raise ErrorCliente(
+        "No se pudo crear el cliente por datos invalidos."
+    ) from error
+excepciones.ErrorCliente: No se pudo crear el cliente por datos invalidos.
+2026-11-24 22:02:57 | INFO | Todas las pruebas integrales fueron aprobadas.
+2026-11-24 22:05:27 | INFO | Gestor central de Software FJ iniciado.
+2026-11-24 22:05:27 | INFO | Aplicacion principal iniciada.
+2026-11-24 22:05:41 | INFO | Aplicacion principal finalizada.
+2026-11-24 22:06:48 | INFO | Gestor central de Software FJ iniciado.
+2026-11-24 22:06:48 | INFO | Aplicacion principal iniciada.
+2026-11-24 22:07:18 | INFO | Cliente registrado: C100.
+2026-11-24 22:18:00 | INFO | Gestor central de Software FJ iniciado.
+2026-11-24 22:18:00 | INFO | Inicio de pruebas integrales.
+2026-11-24 22:18:00 | INFO | Cliente registrado: C001.
+2026-11-24 22:18:00 | ERROR | Prueba 2: cliente con correo invalido: El correo electrónico no es válido.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 92, in <module>
+    cliente_invalido = Cliente(
+        "C002",
+    ...<2 lines>...
+        "3001234567"
+    )
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\clientes.py", line 37, in __init__
+    raise ErrorValidacion("El correo electrónico no es válido.")
+excepciones.ErrorValidacion: El correo electrónico no es válido.
+2026-11-24 22:18:00 | INFO | Cliente registrado: C003.
+2026-11-24 22:18:00 | INFO | Servicio registrado: S001.
+2026-11-24 22:18:00 | INFO | Servicio registrado: E001.
+2026-11-24 22:18:00 | ERROR | Prueba 6: capacidad de sala invalida: La capacidad debe ser un entero positivo.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 176, in <module>
+    servicio_invalido = ServicioSala(
+        "S002",
+    ...<2 lines>...
+        0
+    )
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\servicios.py", line 136, in __init__
+    raise ErrorValidacion("La capacidad debe ser un entero positivo.")
+excepciones.ErrorValidacion: La capacidad debe ser un entero positivo.
+2026-11-24 22:18:00 | INFO | Reserva creada: R001 para cliente C001.
+2026-11-24 22:18:00 | INFO | Servicio registrado: S003.
+2026-11-24 22:18:00 | ERROR | Error al crear reserva: El servicio Sala no disponible no esta disponible.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 143, in crear_reserva
+    reserva = Reserva(
+        codigo,
+    ...<3 lines>...
+        cantidad
+    )
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\reservas.py", line 67, in __init__
+    servicio.validar_parametros(duracion)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\servicios.py", line 146, in validar_parametros
+    self.validar_disponibilidad()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\servicios.py", line 70, in validar_disponibilidad
+    raise ServicioNoDisponible(
+        f"El servicio {self._nombre} no esta disponible."
+    )
+excepciones.ServicioNoDisponible: El servicio Sala no disponible no esta disponible.
+2026-11-24 22:18:00 | ERROR | Prueba 8: servicio no disponible: El servicio Sala no disponible no esta disponible.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 236, in <module>
+    gestor.crear_reserva(
+    ~~~~~~~~~~~~~~~~~~~~^
+        "R002",
+        ^^^^^^^
+    ...<2 lines>...
+        2
+        ^
+    )
+    ^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 143, in crear_reserva
+    reserva = Reserva(
+        codigo,
+    ...<3 lines>...
+        cantidad
+    )
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\reservas.py", line 67, in __init__
+    servicio.validar_parametros(duracion)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\servicios.py", line 146, in validar_parametros
+    self.validar_disponibilidad()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\servicios.py", line 70, in validar_disponibilidad
+    raise ServicioNoDisponible(
+        f"El servicio {self._nombre} no esta disponible."
+    )
+excepciones.ServicioNoDisponible: El servicio Sala no disponible no esta disponible.
+2026-11-24 22:18:00 | ERROR | Error al crear reserva: No se encontro el cliente C999.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 140, in crear_reserva
+    cliente = self.buscar_cliente(codigo_cliente)
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 98, in buscar_cliente
+    raise ErrorCliente(
+        f"No se encontro el cliente {codigo}."
+    )
+excepciones.ErrorCliente: No se encontro el cliente C999.
+2026-11-24 22:18:00 | ERROR | Prueba 9: cliente inexistente: No se encontro el cliente C999.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 255, in <module>
+    gestor.crear_reserva(
+    ~~~~~~~~~~~~~~~~~~~~^
+        "R003",
+        ^^^^^^^
+    ...<2 lines>...
+        2
+        ^
+    )
+    ^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 140, in crear_reserva
+    cliente = self.buscar_cliente(codigo_cliente)
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 98, in buscar_cliente
+    raise ErrorCliente(
+        f"No se encontro el cliente {codigo}."
+    )
+excepciones.ErrorCliente: No se encontro el cliente C999.
+2026-11-24 22:18:00 | ERROR | Error al registrar cliente: Ya existe el cliente C001.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 51, in registrar_cliente
+    raise ErrorCliente(
+        f"Ya existe el cliente {cliente.codigo}."
+    )
+excepciones.ErrorCliente: Ya existe el cliente C001.
+2026-11-24 22:18:00 | ERROR | Prueba 10: cliente duplicado: Ya existe el cliente C001.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 274, in <module>
+    gestor.registrar_cliente(cliente1)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 51, in registrar_cliente
+    raise ErrorCliente(
+        f"Ya existe el cliente {cliente.codigo}."
+    )
+excepciones.ErrorCliente: Ya existe el cliente C001.
+2026-11-24 22:18:00 | ERROR | Prueba 11: excepcion encadenada: No se pudo crear el cliente por datos invalidos.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 291, in crear_cliente_con_encadenamiento
+    return Cliente(
+        "C011",
+    ...<2 lines>...
+        "3001234567"
+    )
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\clientes.py", line 37, in __init__
+    raise ErrorValidacion("El correo electrónico no es válido.")
+excepciones.ErrorValidacion: El correo electrónico no es válido.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 305, in <module>
+    crear_cliente_con_encadenamiento()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 299, in crear_cliente_con_encadenamiento
+    raise ErrorCliente(
+        "No se pudo crear el cliente por datos invalidos."
+    ) from error
+excepciones.ErrorCliente: No se pudo crear el cliente por datos invalidos.
+2026-11-24 22:18:00 | INFO | Todas las pruebas integrales fueron aprobadas.
+2026-11-24 22:26:26 | INFO | Gestor central de Software FJ iniciado.
+2026-11-24 22:26:26 | INFO | Inicio de pruebas integrales.
+2026-11-24 22:26:26 | INFO | Cliente registrado: C001.
+2026-11-24 22:26:26 | ERROR | Prueba 2: cliente con correo invalido: El correo electrónico no es válido.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 92, in <module>
+    cliente_invalido = Cliente(
+        "C002",
+    ...<2 lines>...
+        "3001234567"
+    )
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\clientes.py", line 37, in __init__
+    raise ErrorValidacion("El correo electrónico no es válido.")
+excepciones.ErrorValidacion: El correo electrónico no es válido.
+2026-11-24 22:26:26 | INFO | Cliente registrado: C003.
+2026-11-24 22:26:26 | INFO | Servicio registrado: S001.
+2026-11-24 22:26:26 | INFO | Servicio registrado: E001.
+2026-11-24 22:26:26 | ERROR | Prueba 6: capacidad de sala invalida: La capacidad debe ser un entero positivo.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 176, in <module>
+    servicio_invalido = ServicioSala(
+        "S002",
+    ...<2 lines>...
+        0
+    )
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\servicios.py", line 136, in __init__
+    raise ErrorValidacion("La capacidad debe ser un entero positivo.")
+excepciones.ErrorValidacion: La capacidad debe ser un entero positivo.
+2026-11-24 22:26:26 | INFO | Reserva creada: R001 para cliente C001.
+2026-11-24 22:26:26 | INFO | Servicio registrado: S003.
+2026-11-24 22:26:26 | ERROR | Error al crear reserva: El servicio Sala no disponible no esta disponible.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 143, in crear_reserva
+    reserva = Reserva(
+        codigo,
+    ...<3 lines>...
+        cantidad
+    )
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\reservas.py", line 67, in __init__
+    servicio.validar_parametros(duracion)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\servicios.py", line 146, in validar_parametros
+    self.validar_disponibilidad()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\servicios.py", line 70, in validar_disponibilidad
+    raise ServicioNoDisponible(
+        f"El servicio {self._nombre} no esta disponible."
+    )
+excepciones.ServicioNoDisponible: El servicio Sala no disponible no esta disponible.
+2026-11-24 22:26:26 | ERROR | Prueba 8: servicio no disponible: El servicio Sala no disponible no esta disponible.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 236, in <module>
+    gestor.crear_reserva(
+    ~~~~~~~~~~~~~~~~~~~~^
+        "R002",
+        ^^^^^^^
+    ...<2 lines>...
+        2
+        ^
+    )
+    ^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 143, in crear_reserva
+    reserva = Reserva(
+        codigo,
+    ...<3 lines>...
+        cantidad
+    )
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\reservas.py", line 67, in __init__
+    servicio.validar_parametros(duracion)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\servicios.py", line 146, in validar_parametros
+    self.validar_disponibilidad()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\servicios.py", line 70, in validar_disponibilidad
+    raise ServicioNoDisponible(
+        f"El servicio {self._nombre} no esta disponible."
+    )
+excepciones.ServicioNoDisponible: El servicio Sala no disponible no esta disponible.
+2026-11-24 22:26:26 | ERROR | Error al crear reserva: No se encontro el cliente C999.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 140, in crear_reserva
+    cliente = self.buscar_cliente(codigo_cliente)
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 98, in buscar_cliente
+    raise ErrorCliente(
+        f"No se encontro el cliente {codigo}."
+    )
+excepciones.ErrorCliente: No se encontro el cliente C999.
+2026-11-24 22:26:26 | ERROR | Prueba 9: cliente inexistente: No se encontro el cliente C999.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 255, in <module>
+    gestor.crear_reserva(
+    ~~~~~~~~~~~~~~~~~~~~^
+        "R003",
+        ^^^^^^^
+    ...<2 lines>...
+        2
+        ^
+    )
+    ^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 140, in crear_reserva
+    cliente = self.buscar_cliente(codigo_cliente)
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 98, in buscar_cliente
+    raise ErrorCliente(
+        f"No se encontro el cliente {codigo}."
+    )
+excepciones.ErrorCliente: No se encontro el cliente C999.
+2026-11-24 22:26:26 | ERROR | Error al registrar cliente: Ya existe el cliente C001.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 51, in registrar_cliente
+    raise ErrorCliente(
+        f"Ya existe el cliente {cliente.codigo}."
+    )
+excepciones.ErrorCliente: Ya existe el cliente C001.
+2026-11-24 22:26:26 | ERROR | Prueba 10: cliente duplicado: Ya existe el cliente C001.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 274, in <module>
+    gestor.registrar_cliente(cliente1)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\gestor.py", line 51, in registrar_cliente
+    raise ErrorCliente(
+        f"Ya existe el cliente {cliente.codigo}."
+    )
+excepciones.ErrorCliente: Ya existe el cliente C001.
+2026-11-24 22:26:26 | ERROR | Prueba 11: excepcion encadenada: No se pudo crear el cliente por datos invalidos.
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 291, in crear_cliente_con_encadenamiento
+    return Cliente(
+        "C011",
+    ...<2 lines>...
+        "3001234567"
+    )
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\clientes.py", line 37, in __init__
+    raise ErrorValidacion("El correo electrónico no es válido.")
+excepciones.ErrorValidacion: El correo electrónico no es válido.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 305, in <module>
+    crear_cliente_con_encadenamiento()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\User\OneDrive\CARPETAS ANTIGUAS\Documents\Software_FJ\pruebas.py", line 299, in crear_cliente_con_encadenamiento
+    raise ErrorCliente(
+        "No se pudo crear el cliente por datos invalidos."
+    ) from error
+excepciones.ErrorCliente: No se pudo crear el cliente por datos invalidos.
+2026-11-24 22:26:26 | INFO | Todas las pruebas integrales fueron aprobadas.
